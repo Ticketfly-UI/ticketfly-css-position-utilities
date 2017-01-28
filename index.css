@@ -4,7 +4,16 @@
 
 .u-relative { position: relative !important; }
 .u-absolute { position: absolute !important; }
-.u-fixed { position: fixed !important; }
+
+/*
+ * 1. Promote fixed elements into a new layer, for performance
+ *    reasons.
+ *    see: https://benfrain.com/improving-css-performance-fixed-position-elements/
+ */
+.u-fixed {
+  backface-visibility: hidden !important; /* 1 */
+  position: fixed !important;
+}
 
 .u-edge-top { top: 0 !important; }
 .u-edge-right { right: 0 !important; }
